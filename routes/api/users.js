@@ -8,6 +8,12 @@ const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
 
+// @route   GET api/users
+// @desc    test route
+// @access  public
+router.post('/test', async (req, res) => {
+	return res.json({ msg: 'Successfully accessed POST api/users/test' });
+});
 // @route   POST api/users
 // @desc    register user
 // @access  public
