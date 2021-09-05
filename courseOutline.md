@@ -1,20 +1,20 @@
 ## Brad Traversy's "MERN Stack Front To Back" course on [Udemy](https://www.udemy.com/mern-stack-front-to-back/?couponCode=TRAVERSYMEDIA).
 
-Section 1: Introduction
+**Section 1: Introduction**
 
 1.  Welcome To The Course
 2.  A Look At The Course Project
 3.  Environment & Setup
 4.  Link To Project Files
 
-Section 2: Express & MongoDB Setup
+**Section 2: Express & MongoDB Setup**
 
-5.  MongoDB Atlas Setup
-6.  Install Dependencies & Basic Express Setup
-7.  Connecting To MongoDB With Mongoose
-8.  Route Files With Express Router
+1.  MongoDB Atlas Setup
+2.  Install Dependencies & Basic Express Setup
+3.  Connecting To MongoDB With Mongoose
+4.  Route Files With Express Router
 
-Section 3: User API Routes & JWT
+**Section 3: User API Routes & JWT**
 
 9. Creating The User Model
 10. Request & Body Validation
@@ -23,7 +23,7 @@ Section 3: User API Routes & JWT
 13. Custom Auth Middleware & JWT Verify
 14. User Authentication / Login Route
 
-Section 4: Profile API Routes
+**Section 4: Profile API Routes**
 
 15. Creating The Profile Model
 16. Get Current User Profile
@@ -35,7 +35,7 @@ Section 4: Profile API Routes
 22. Add & Delete Profile Education
 23. Get Github Repos For Profile
 
-Section 5: Post API Routes
+**Section 5: Post API Routes**
 
 24. Creating The Post Model
 25. Add Post Route
@@ -43,7 +43,7 @@ Section 5: Post API Routes
 27. Post Like & Unlike Routes
 28. Add & Remove Comment Routes
 
-Section 6: Getting Started With React & The
+**Section 6: Getting Started With React & The Frontend**
 
 29. A Look At The The UI / Theme
 30. Link To Theme Building Series On YouTube
@@ -53,21 +53,21 @@ Section 6: Getting Started With React & The
 34. Register Form & useState Hook
 35. Request Example & Login Form
 
-Section 7: Redux Setup & Alerts
+**Section 7: Redux Setup & Alerts**
 
 36. The Gist Of Redux
 37. Creating a Redux Store
 38. Alert Reducer, Action & Types
 39. Alert Component & Action Call
 
-Section 8: React User Authentication
+**Section 8: React User Authentication**
 
 40. Auth Reducer & Register Action
 41. Load User & Set Auth Token
 42. User Login
 43. Logout & Navbar Links
 
-Section 9: Dashboard & Profile Management
+**Section 9: Dashboard & Profile Management**
 
 44. Protected Route For Dashboard
 45. Profile Reducer & Get Current Profile
@@ -79,7 +79,7 @@ Section 9: Dashboard & Profile Management
 51. List Education & Experiences
 52. Delete Education, Experiences & Account
 
-Section 10: Profile DIsplay
+**Section 10: Profile Display**
 
 53. Finish Profile Actions & Reducer
 54. Display Profiles
@@ -90,7 +90,7 @@ Section 10: Profile DIsplay
 59. Displaying Github Repos
 60. Profile State Issue & Fix
 
-Section 11: Posts & Comments
+**Section 11: Posts & Comments**
 
 61. Post Reducer, Action & Initial Component
 62. Post Item Component
@@ -101,13 +101,13 @@ Section 11: Posts & Comments
 67. Adding Comments
 68. Comment Display & Delete
 
-Section 12: Prepare & Deploy
+**Section 12: Prepare & Deploy**
 
 69. Install Heroku CLI
 70. Prepare For Deployment
 71. Deploy To Heroku
 
-Section 13: Issues, Added Features, etc
+**Section 13: Issues, Added Features, etc**
 
 72. About This Section
 73. Not Found Page & Theme Workaround
