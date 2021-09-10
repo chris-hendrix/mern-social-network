@@ -7,16 +7,14 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 // @route   GET api/profile/me
 // @desc    get current user's profile
 // @access  private
 router.get('/me', auth, async (req, res) => {
 	try {
-		profile = await Profile.findOne({ user: req.user.id }).populate('user', [
-			'name',
-			'avatar',
-		]);
+		profile = await Profile.findOne({ user: req.user.id }).populate('user', ['name', 'avatar']);
 		if (!profile) {
 			return res.status(400).json({ msg: 'There is no profile for this user' });
 		}
@@ -60,9 +58,7 @@ router.post(
 		const profileFields = {
 			user: req.user.id,
 			website: website,
-			skills: Array.isArray(skills)
-				? skills
-				: skills.split(',').map((skill) => ' ' + skill.trim()),
+			skills: Array.isArray(skills) ? skills : skills.split(',').map((skill) => ' ' + skill.trim()),
 			...rest,
 		};
 		profileFields.social = {
@@ -137,7 +133,8 @@ router.get('/user/:user_id', async (req, res) => {
 // @access  private
 router.delete('/', auth, async (req, res) => {
 	try {
-		// @todo - remove users posts
+		// remove user posts
+		await Post.deleteMany({ user: req.user });
 
 		// remove profile
 		await Profile.findOneAndRemove({ user: req.user.id });
@@ -197,9 +194,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 		const profile = await Profile.findOne({ user: req.user.id });
 
 		// remove profile experience at index
-		const removeIndex = profile.experience
-			.map((item) => item.id)
-			.indexOf(req.params.exp_id);
+		const removeIndex = profile.experience.map((item) => item.id).indexOf(req.params.exp_id);
 		profile.experience.splice(removeIndex, 1);
 		await profile.save();
 
@@ -254,9 +249,7 @@ router.delete('/education/:exp_id', auth, async (req, res) => {
 		const profile = await Profile.findOne({ user: req.user.id });
 
 		// remove profile education at index
-		const removeIndex = profile.experience
-			.map((item) => item.id)
-			.indexOf(req.params.edu_id);
+		const removeIndex = profile.experience.map((item) => item.id).indexOf(req.params.edu_id);
 		profile.education.splice(removeIndex, 1);
 		await profile.save();
 
