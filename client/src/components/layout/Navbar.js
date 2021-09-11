@@ -6,7 +6,7 @@ import { logout } from '../../actions/auth';
 
 export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 	const authLinks = (
-		<ul>
+		<Fragment>
 			<li>
 				<Link to='/dashboard'>
 					<i className='fas fa-user'></i> <span>Dashboard</span>
@@ -17,20 +17,17 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 					<i className='fas fa-sign-out-alt'></i> <span className='hide-sm'>Logout</span>
 				</Link>
 			</li>
-		</ul>
+		</Fragment>
 	);
 	const guestLinks = (
-		<ul>
-			<li>
-				<Link to='#!'>Profiles</Link>
-			</li>
+		<Fragment>
 			<li>
 				<Link to='/register'>Register</Link>
 			</li>
 			<li>
 				<Link to='/login'>Login</Link>
 			</li>
-		</ul>
+		</Fragment>
 	);
 	return (
 		<nav className='navbar bg-dark'>
@@ -39,7 +36,12 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 					<i className='fas fa-code'></i> BeeSocial
 				</Link>
 			</h1>
-			{!loading && <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>}
+			<ul>
+				<li>
+					<Link to='/profiles'>Profiles</Link>
+				</li>
+				{!loading && <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>}
+			</ul>
 		</nav>
 	);
 };
