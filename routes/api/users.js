@@ -71,7 +71,7 @@ router.post(
 			// sign payload into a jw token
 			jwt.sign(
 				payload,
-				config.get('jwtSecret'),
+				process.env.JWT_SECRET,
 				{ expiresIn: 360000 }, // TODO change back to 3600
 				(err, token) => {
 					if (err) throw err;
