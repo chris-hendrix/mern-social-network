@@ -17,3 +17,9 @@ The app was built with the following workflow:
 11. Posts & Comments
 12. Prepare & Deploy
 13. Issues, Added Features, etc
+
+Tools:
+
+- [Font Awesome](https://fontawesome.com/)
+- [React Google Button](https://www.npmjs.com/package/react-google-button)
+- [Passport with JWT Tutorial](https://medium.com/@rustyonrampage/using-oauth-2-0-along-with-jwt-in-node-express-9e0063d911ed)

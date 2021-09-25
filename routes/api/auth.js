@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+var passport = require('passport');
 
 const User = require('../../models/User');
 
@@ -77,5 +78,10 @@ router.post(
 		}
 	}
 );
+
+// @route   GET api/auth/google
+// @desc    OAuth Authentication, Just going to this URL will open OAuth screens
+// @access  Public
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 module.exports = router;

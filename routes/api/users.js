@@ -2,9 +2,14 @@ const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const User = require('../../models/User');
 
@@ -84,5 +89,42 @@ router.post(
 		}
 	}
 );
+
+// @route   GET api/auth/googleRedirect
+// @desc    Oauth user data comes to these redirectURLs
+// @access  Public
+router.get('/googleRedirect', passport.authenticate('google'), async (req, res) => {
+	console.log('redirected', req.user);
+	/*
+	let user = {
+		name: req.user.name.givenName,
+		email: req.user._json.email,
+		provider: req.user.provider,
+	};
+	console.log(user);
+	// find or create user
+	try {
+		await User.findOneAndUpdate(
+			filter, // find a document with that filter
+			{ $setOnInsert: user }, // document to insert when nothing was found
+			{ upsert: true, new: true, runValidators: true }
+		);
+	} catch (err) {
+		console.error(err.message);
+		return res.status(500).send('Server error');
+	}
+
+	// FindOrCreate(user);
+	let token = jwt.sign(
+		{
+			data: user,
+		},
+		'secret',
+		{ expiresIn: 60 }
+	); // expiry in seconds
+	res.cookie('jwt', token);
+	res.redirect('/');
+	*/
+});
 
 module.exports = router;

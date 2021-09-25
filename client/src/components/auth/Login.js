@@ -2,9 +2,10 @@ import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/auth';
+import { login, loginGoogle } from '../../actions/auth';
+import GoogleButton from 'react-google-button';
 
-export const Login = ({ login, isAuthenticated }) => {
+export const Login = ({ login, loginGoogle, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -52,6 +53,15 @@ export const Login = ({ login, isAuthenticated }) => {
 				</div>
 				<input type='submit' className='btn btn-primary' value='Login' />
 			</form>
+			<br />
+			<div>
+				<GoogleButton
+					onClick={() => {
+						console.log('Google button clicked');
+						loginGoogle();
+					}}
+				/>
+			</div>
 			<p className='my-1'>
 				Don't have an account? <Link to='/register'>Sign Up</Link>
 			</p>
@@ -61,6 +71,7 @@ export const Login = ({ login, isAuthenticated }) => {
 
 login.PropTypes = {
 	login: PropTypes.func.isRequired,
+	loginGoogle: PropTypes.func.isRequired,
 	isAuthenticated: PropTypes.bool,
 };
 
@@ -68,4 +79,4 @@ const mapStateToProps = (state) => ({
 	isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login, loginGoogle })(Login);

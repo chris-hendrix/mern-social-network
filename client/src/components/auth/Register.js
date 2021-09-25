@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
+import GoogleButton from 'react-google-button';
 import PropTypes from 'prop-types';
 
 export const Register = ({ setAlert, register, isAuthenticated }) => {
@@ -82,6 +83,14 @@ export const Register = ({ setAlert, register, isAuthenticated }) => {
 				</div>
 				<input type='submit' className='btn btn-primary' value='Register' />
 			</form>
+			<br />
+			<div>
+				<GoogleButton
+					onClick={() => {
+						console.log('Google button clicked');
+					}}
+				/>
+			</div>
 			<p className='my-1'>
 				Already have an account? <Link to='/login'>Sign In</Link>
 			</p>

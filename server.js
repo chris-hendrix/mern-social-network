@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const connectDB = require('./config/db');
 const path = require('path');
+var passport = require('passport');
 
 const app = express();
 
@@ -16,6 +17,10 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
+
+// use passport
+app.use(passport.initialize()); // after line no.20 (express.static)
+require('./config/passport');
 
 // serve static assets in production
 if (process.env.NODE_ENV === 'production') {
