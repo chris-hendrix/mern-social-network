@@ -82,6 +82,6 @@ router.post(
 // @route   GET api/auth/google
 // @desc    OAuth Authentication, Just going to this URL will open OAuth screens
 // @access  Public
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/authgoogle', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 module.exports = router;

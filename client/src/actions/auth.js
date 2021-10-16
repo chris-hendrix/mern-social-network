@@ -91,12 +91,15 @@ export const login = (email, password) => async (dispatch) => {
 // login google user
 export const loginGoogle = () => async (dispatch) => {
 	try {
-		const res = await axios.get('/api/auth/google');
+		console.log('TODO actions/loginGoogle');
+		const res = await axios.get('/api/authgoogle');
+		/*
 		dispatch({
 			type: LOGIN_SUCCESS,
 			payload: res.data,
 		});
 		dispatch(loadUser());
+		*/
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {

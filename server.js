@@ -19,7 +19,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
 // use passport
-app.use(passport.initialize()); // after line no.20 (express.static)
+app.use(passport.initialize());
 require('./config/passport');
 
 // serve static assets in production
